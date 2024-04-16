@@ -31,14 +31,14 @@ body {
     background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
 }
 
-.card {
+.expense-card {
     min-width: 40vw;
-    min-height: 200px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    max-width: 700px;
+    max-width: 500px;
     height: fit-content;
     padding: 35px;
 

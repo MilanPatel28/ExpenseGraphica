@@ -27,7 +27,7 @@ const SignupForm = ({ onSignup }) => {
     // Set showAlert to true
     setShowAlert(true);
     if(data) {
-      navigate('/login');
+      navigate('/');
     } else {
       alert('Signup failed');
     }

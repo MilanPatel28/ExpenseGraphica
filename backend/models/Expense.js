@@ -13,7 +13,7 @@ const expenseSchema = new Schema({
     },
     modeOfExpense: {
         type: String,
-        enum: ['Cash', 'Credit Card', 'Debit Card', 'Online Payment'],
+        enum: ['Cash', 'Online'],
         required: true
     },
     date: {

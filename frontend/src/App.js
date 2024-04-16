@@ -39,6 +39,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
+        {/* <Route path="/login" element={<LoginForm onLogin={handleLogin} />} /> */}
         <Route path="/signup" element={<SignupForm onSignup={handleSignup} />} />
         <Route path="/add-expense" element={<AddExpense/>} />
         <Route path="/statement" element={<StatementPage/>} />

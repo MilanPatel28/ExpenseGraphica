@@ -1,13 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../Styles/navbar.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../Styles/navbar.css';
 
 export default function Navbar() {
     return (
         <>
             <div>
                 <div id="nav-bar">
+                    <input type="checkbox" id="nav-toggle" />
                     <div id="nav-header">
+                        <label htmlFor="nav-toggle"><span id="nav-toggle-burger"></span></label>
                         <Link id="nav-title" to="/home">ExpenseGraphica</Link>
                         <hr />
                     </div>
@@ -28,5 +30,5 @@ export default function Navbar() {
                 </div>
             </div>
         </>
-    )
+    );
 }

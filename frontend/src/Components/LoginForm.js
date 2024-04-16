@@ -22,8 +22,8 @@ const LoginForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data);
-        localStorage.setItem('token', data.token);
+        console.log('Success:', data.token);
+        localStorage.setItem('x-auth-token', data.token);
 
         if (data) {
           navigate('/home');

@@ -17,10 +17,16 @@ const authMiddleware = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Add user from payload
-    req.user = await User.findById(decoded.user.id).select('-password');
+    const user = await User.findById(decoded.user.id).select('-password');
+    if (!user) {
+      console.error('User not found');
+      return res.status(401).json({ message: 'User not found' });
+    }
 
+    req.user = user;
     next();
   } catch (error) {
+    console.error('Token verification error:', error.message);
     res.status(401).json({ message: 'Token is not valid' });
   }
 };
