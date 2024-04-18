@@ -43,6 +43,8 @@ const AddExpense = () => {
                 date: '',
                 description: ''
             });
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false); // Clear radio buttons
+            setSelectedCategory(""); // Clear selected category
             setShowAlert(true); // Show alert
             setTimeout(() => {
                 setShowAlert(false); // Hide alert after 2 seconds

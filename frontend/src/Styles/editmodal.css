@@ -42,7 +42,7 @@
     border-radius: 4px;
   }
   
-  button {
+  .modal-btn {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -52,6 +52,6 @@
     margin-top: 10px;
   }
   
-  button:hover {
+  .modal-btn:hover {
     background-color: #0056b3;
   }

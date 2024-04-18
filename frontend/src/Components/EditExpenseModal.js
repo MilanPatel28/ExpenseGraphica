@@ -34,7 +34,7 @@ export default function EditExpenseModal({ expense, onSave, onClose }) {
         <label>Description: 
           <input type="text" name="description" value={editedExpense.description} onChange={handleChange} />
         </label>
-        <button onClick={handleSave}>Save</button>
+        <button className='modal-btn' onClick={handleSave}>Save</button>
       </div>
     </div>
   );

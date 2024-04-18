@@ -21,7 +21,8 @@ export default function StatementPage() {
         }
       });
       const data = await response.json();
-      setExpenses(data);
+      const sortedExpenses = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setExpenses(sortedExpenses);
     } catch (error) {
       console.error('Error fetching expenses:', error);
     }
@@ -74,6 +75,15 @@ export default function StatementPage() {
     setEditModalOpen(false);
   };
 
+  // Function to format date to DD/MM/YYYY format
+  const formatDate = (date) => {
+    const d = new Date(date);
+    const day = d.getDate().toString().padStart(2, '0');
+    const month = (d.getMonth() + 1).toString().padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <>
       <Navbar />
@@ -86,12 +96,12 @@ export default function StatementPage() {
                 <p>Amount: {expense.amount}</p>
                 <p>Category: {expense.category}</p>
                 <p>Mode of Expense: {expense.modeOfExpense}</p>
-                <p>Date: {new Date(expense.date).toLocaleDateString()}</p>
+                <p>Date: {formatDate(expense.date)}</p>
                 <p>Description: {expense.description}</p>
               </div>
               <div>
-                <button onClick={() => handleEdit(expense)}>Edit</button>
-                <button onClick={() => handleDelete(expense._id)}>Delete</button>
+                <button className='btn btn-primary' onClick={() => handleEdit(expense)}>Edit</button>
+                <button className='btn btn-primary' onClick={() => handleDelete(expense._id)}>Delete</button>
               </div>
             </li>
           ))}
