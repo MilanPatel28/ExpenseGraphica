@@ -1,10 +1,14 @@
 import React from 'react'
 import Navbar from './Navbar'
+import ColumnChart from './ColumnChart'
+import DonutChart from './DonutChart'
+
 export default function DetailedReport() {
   return (
     <>
     <Navbar />
-    <div>DetailedReport</div>
+    <ColumnChart/>
+    <DonutChart/>
     </>
   )
 }
