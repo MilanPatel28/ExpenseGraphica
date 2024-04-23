@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const ColumnChart = () => {
+  const [expenseData, setExpenseData] = useState([]);
+
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
+
+  const fetchExpenses = async () => {
+    try {
+      const token = localStorage.getItem('x-auth-token');
+      const response = await fetch('http://localhost:5000/expenses', {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': `${token}`
+        }
+      });
+      const data = await response.json();
+      setExpenseData(data);
+    } catch (error) {
+      console.error('Error fetching expenses:', error);
+    }
+  };
+
+  const getMonthlyExpenses = () => {
+    const monthlyExpenses = new Array(12).fill(0);
+
+    expenseData.forEach(expense => {
+      const month = new Date(expense.date).getMonth();
+      monthlyExpenses[month] += expense.amount;
+    });
+
+    return monthlyExpenses;
+  };
+
+  const series = [{
+    name: 'Expenses',
+    data: getMonthlyExpenses()
+  }];
+
   const options = {
     chart: {
-      // height: 850,
       type: 'bar',
     },
     plotOptions: {
@@ -18,7 +55,7 @@ const ColumnChart = () => {
     dataLabels: {
       enabled: true,
       formatter: function (val) {
-        return val + "%";
+        return val.toFixed(2); // Format to two decimal places
       },
       offsetY: -20,
       style: {
@@ -28,7 +65,7 @@ const ColumnChart = () => {
     },
     xaxis: {
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      position: 'top',
+      position: 'bottom',
       axisBorder: {
         show: false
       },
@@ -61,14 +98,14 @@ const ColumnChart = () => {
       labels: {
         show: false,
         formatter: function (val) {
-          return val + "%";
+          return val.toFixed(2); // Format to two decimal places
         }
       }
     },
     title: {
-      text: 'Monthly Inflation in Argentina, 2002',
+      text: 'Monthly Expenses',
       floating: true,
-      offsetY: 680,
+      offsetY: 500,
       align: 'center',
       style: {
         color: '#444'
@@ -76,15 +113,10 @@ const ColumnChart = () => {
     }
   };
 
-  const series = [{
-    name: 'Inflation',
-    data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
-  }];
-
   return (
     <div>
       <div id="chart">
-        <ReactApexChart options={options} series={series} type="bar" height={700} width={700} />
+        <ReactApexChart options={options} series={series} type="bar" height={500} width={700} />
       </div>
       <div id="html-dist"></div>
     </div>
