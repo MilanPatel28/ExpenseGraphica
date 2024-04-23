@@ -3,19 +3,19 @@
     box-sizing: inherit;
 }
 
-*,
+/* *,
 *:before,
 *:after {
     box-sizing: inherit;
-}
+} */
 
-p {
+/* p {
     margin: 0;
-}
+} */
 
-p:not(:last-child) {
+/* p:not(:last-child) {
     margin-bottom: 1.5em;
-}
+} */
 
 body {
     font: 1em/1.618 Inter, sans-serif;
@@ -55,24 +55,74 @@ body {
     color: #446;
 }
 
-li {
+/* li {
     min-width: 20vw;
-}
-a {
+} */
+/* a {
     max-width:18vw;
-}
+} */
 
-.submitbtn {
-    width: 10vw;
-    margin-left:35%;
-}
 
-label {
-    font-size:1.2rem;
+.label1 .label2 .label3 .label4 .label5{
+    font-size: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-input {
+/* input {
     border-radius:8px;
     padding: 7px;
+} */
+
+.outerForm {
+    width: 100%;
+    margin: -30px 0 -10px 0;
+}
+
+.amountInput {
+    width: 50%;
+    margin: -30px 0;
+}
+
+.dropdown-item:hover{
+    max-width: 87%;
+}
+
+.dropdwon {
+    margin: 0;
+}
+
+.label3 {
+    margin: -20px 0 0 0;
+}
+
+.custom-control-label {
+    width: fit-content;
+    margin-top: -28px;
+}
+
+.custom-control-input {
+    width: fit-content;
+    margin: 10px 0 0 17%;
+}
+
+.label4 {
+    margin-top: -20px;
+}
+
+.dateInput {
+    width: auto;
+    margin: -30px 0 0 0;
+}
+
+.label5 {
+    margin: -10px 0 0 0;
+}
+
+.descInput {
+    margin: -30px 0 0 0;
+    width: 97%;
+}
+
+.submitbtn {
+    margin: -10px 0 0 35%;
 }

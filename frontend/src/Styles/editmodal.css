@@ -1,13 +1,17 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
+    position:absolute;
+    /* top: 4%; */
+    /* left: 10%; */
+    /* width: 50%; */
+    /* height: 100%;  */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 100vh;
+    max-width: 100vw;
+    z-index: 1;
+    /* overflow-y: hidden; */
   }
   
   .modal-content {
@@ -15,7 +19,10 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
+    height: 70%;
+    width: 80%;
+    font-size: 22px;
+  } 
   
   .close {
     position: absolute;
@@ -35,9 +42,9 @@
   }
   
   input {
-    width: 100%;
+    /* width: 100%; */
     padding: 8px;
-    margin-top: 5px;
+    margin: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }

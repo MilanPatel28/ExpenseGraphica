@@ -66,12 +66,12 @@ const AddExpense = () => {
                         </div>
                     )}
                 </div>
-                <form onSubmit={handleSubmit}>
-                    <label>Amount: </label>
+                <form className="outerForm" onSubmit={handleSubmit}>
+                    <label className='label1'>Amount: </label>
                     <br />
-                    <input type="text" name="amount" value={formData.amount} onChange={handleChange} required />
+                    <input type="text" name="amount" value={formData.amount} onChange={handleChange} className='amountInput' required />
                     <br /><br />
-                    <label>Category: </label>
+                    <label className='label2'>Category: </label>
                     <div className="dropdown">
                         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="categoryDropdown">
                             {selectedCategory || "Select Category"}
@@ -86,7 +86,7 @@ const AddExpense = () => {
                         </ul>
                     </div>
                     <br />
-                    <label>Mode of expense: </label>
+                    <label className='label3'>Mode of expense: </label>
                     <div className="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline1" name="modeOfExpense" className="custom-control-input" value="Online" onChange={handleChange} required />
                         <label className="custom-control-label" htmlFor="customRadioInline1">Online</label>
@@ -97,14 +97,14 @@ const AddExpense = () => {
                     </div>
                     <br />
 
-                    <label>Date: </label>
+                    <label className='label4'>Date: </label>
                     <br />
-                    <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+                    <input type="date" name="date" value={formData.date} onChange={handleChange} required className='dateInput'/>
                     <br /><br />
 
-                    <label>Description: </label>
+                    <label className='label5'>Description: </label>
                     <br />
-                    <input type="text" name="description" value={formData.description} onChange={handleChange} required />
+                    <input type="text" name="description" value={formData.description} onChange={handleChange} required className='descInput'/>
                     <br /><br />
 
                     <button type="submit" className="btn btn-success submitbtn">Add expense</button>

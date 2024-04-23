@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import EditExpenseModal from './EditExpenseModal';
+import styles from '../Styles/statementPage.module.css'
 
 export default function StatementPage() {
   const [expenses, setExpenses] = useState([]);
@@ -88,20 +89,21 @@ export default function StatementPage() {
     <>
       <Navbar />
       <div>
-        <h1>Expense List</h1>
-        <ul>
+        <h1 className={styles.mainHeading}>Statement</h1>
+        <ul className={styles.outerUl}>
           {expenses.map(expense => (
-            <li key={expense._id}>
-              <div>
+            <li key={expense._id} className={styles.expenseItem}>
+              <div className={styles.detailsDiv}>
                 <p>Amount: {expense.amount}</p>
                 <p>Category: {expense.category}</p>
                 <p>Mode of Expense: {expense.modeOfExpense}</p>
                 <p>Date: {formatDate(expense.date)}</p>
                 <p>Description: {expense.description}</p>
               </div>
-              <div>
-                <button className='btn btn-primary' onClick={() => handleEdit(expense)}>Edit</button>
-                <button className='btn btn-primary' onClick={() => handleDelete(expense._id)}>Delete</button>
+              <div className={styles.btnDiv}> 
+                <button className={styles.btn} onClick={() => handleEdit(expense)}>Edit</button>
+                <br/><br/>
+                <button className={styles.btn} onClick={() => handleDelete(expense._id)}>Delete</button>
               </div>
             </li>
           ))}

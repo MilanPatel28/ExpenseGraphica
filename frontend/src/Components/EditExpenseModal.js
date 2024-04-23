@@ -18,22 +18,22 @@ export default function EditExpenseModal({ expense, onSave, onClose }) {
     <div className="modal">
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Edit Expense</h2>
-        <label>Amount: 
+        <h4>Edit Expense</h4>
+        <div>Amount: 
           <input type="text" name="amount" value={editedExpense.amount} onChange={handleChange} />
-        </label>
-        <label>Category: 
+        </div>
+        <div>Category: 
           <input type="text" name="category" value={editedExpense.category} onChange={handleChange} />
-        </label>
-        <label>Mode of Expense: 
+        </div>
+        <div>Mode of Expense: 
           <input type="text" name="modeOfExpense" value={editedExpense.modeOfExpense} onChange={handleChange} />
-        </label>
-        <label>Date: 
+        </div>
+        <div>Date: 
           <input type="text" name="date" value={editedExpense.date} onChange={handleChange} />
-        </label>
-        <label>Description: 
+        </div>
+        <div>Description: 
           <input type="text" name="description" value={editedExpense.description} onChange={handleChange} />
-        </label>
+        </div>
         <button className='modal-btn' onClick={handleSave}>Save</button>
       </div>
     </div>
