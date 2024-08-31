@@ -46,10 +46,20 @@ const ColumnChart = () => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 10,
+        borderRadius: 3,
         dataLabels: {
           position: 'top', // top, center, bottom
         },
+        colors: {
+          ranges: [{
+              from: 0.00,
+              to: 2532.00,
+              color: '#1260ff'
+          }],
+          backgroundBarColors: [],
+          backgroundBarOpacity: 1,
+          backgroundBarRadius: 0,
+        },  
       }
     },
     dataLabels: {
@@ -60,17 +70,17 @@ const ColumnChart = () => {
       offsetY: -20,
       style: {
         fontSize: '12px',
-        colors: ["#304758"]
+        colors: ["#000"]
       }
     },
     xaxis: {
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       position: 'bottom',
       axisBorder: {
-        show: false
+        show: true
       },
       axisTicks: {
-        show: false
+        show: true
       },
       crosshairs: {
         fill: {
@@ -86,6 +96,12 @@ const ColumnChart = () => {
       },
       tooltip: {
         enabled: true,
+      },
+      labels: {
+        style: {
+          colors: ["#000","#000","#000","#000","#000","#000","#000","#000","#000","#000","#000","#000"],
+          fontSize: '16px',
+        }
       }
     },
     yaxis: {
@@ -93,30 +109,25 @@ const ColumnChart = () => {
         show: false
       },
       axisTicks: {
-        show: false,
+        show: true,
       },
       labels: {
-        show: false,
+        show: true,
         formatter: function (val) {
           return val.toFixed(2); // Format to two decimal places
+        },
+        style: {
+          colors: ["#000","#000","#000","#000","#000","#000","#000","#000","#000","#000","#000","#000"],
+          fontSize: '16px',
         }
       }
     },
-    title: {
-      text: 'Monthly Expenses',
-      floating: true,
-      offsetY: 500,
-      align: 'center',
-      style: {
-        color: '#444'
-      }
-    }
   };
 
   return (
     <div>
-      <div id="chart">
-        <ReactApexChart options={options} series={series} type="bar" height={500} width={700} />
+      <div id="chart" style={{padding:"10px", margin:"10px"}}>
+        <ReactApexChart options={options} series={series} type="bar" height={400} width={600} />
       </div>
       <div id="html-dist"></div>
     </div>

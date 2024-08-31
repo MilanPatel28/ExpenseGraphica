@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import Navbar from './Navbar';
 import RecentExpensesChart from './RecentExpensesChart';
-import styles from '../Styles/statementPage.module.css'
-
+import styles from '../Styles/homepage.module.css'
+import Heading from './Heading';
 export default function HomePage() {
   const [expenseData, setExpenseData] = useState([]);
   const [latestExpenses, setLatestExpenses] = useState([]);
@@ -49,31 +49,34 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
+      <Heading text="ExpenseGraphica" />
       <div>
-        <h3>Average Expenses: &#8377;{calculateAverageExpenses()}</h3>
-        <RecentExpensesChart />
-        <Link to="/detailed-report">
-          <button className='btn btn-primary my-2'>View Detailed Report</button>
-        </Link>
-        <div>
-          <h3>Latest Expenses</h3>
+        <div className={styles.div1}>
+          <h4>Average Expenses per day: &#8377;{calculateAverageExpenses()}</h4><br/>
+          <RecentExpensesChart />
+          <Link to="/detailed-report">
+            <button className='btn btn-primary my-2'>View Detailed Report</button>
+          </Link>
+        </div>
+        <div className={styles.div2}> 
+          <h4>Latest Expenses</h4>
           <ul>
             {latestExpenses.map(expense => (
-              <li key={expense._id} className={styles.expenseItem}>
-              <div className={styles.detailsDiv}>
-                <p>Amount: {expense.amount}</p>
-                <p>Category: {expense.category}</p>
-                <p>Mode of Expense: {expense.modeOfExpense}</p>
-                <p>Date: {formatDate(expense.date)}</p>
-                <p>Description: {expense.description}</p>
-              </div>
-            </li>
+              <li key={expense._id} className={styles.expenseItem} style={{marginLeft:"-40px"}}>
+                <div className={styles.detailsDiv}>
+                  <p>Amount: {expense.amount}</p>
+                  <p>Category: {expense.category}</p>
+                  <p>Mode of Expense: {expense.modeOfExpense}</p>
+                  <p>Date: {formatDate(expense.date)}</p>
+                  <p>Description: {expense.description}</p>
+                </div>
+              </li>
             ))}
           </ul>
+          <Link to="/statement">
+            <button className='btn btn-primary my-2' style={{display:"flex", marginLeft:"35%"}}>View All Expenses</button>
+          </Link>
         </div>
-        <Link to="/statement">
-          <button className='btn btn-primary my-2'>View All Expenses</button>
-        </Link>
       </div>
     </>
   );

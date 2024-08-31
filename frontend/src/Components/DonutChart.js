@@ -49,12 +49,18 @@ const DonutChart = () => {
     },
     labels: ['Food', 'Bills', 'Health', 'Transportation', 'Shopping', 'Entertainment'],
     fill: {
-      colors: ['#FF0000', '#0000FF', '#00FF00', '#FFFF00', '#FF00FF', '#00FFFF'],
+      colors: ['#50BD12', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#00FFFF'],
     },
     legend: {
       markers: {
-        fillColors: ['#FF0000', '#0000FF', '#00FF00', '#FFFF00', '#FF00FF', '#00FFFF'],
-      }
+        fillColors: ['#50BD12', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#00FFFF'],
+      },
+      position: 'bottom',
+      fontSize: '18px',
+      labels: {
+          colors: ['#000','#000','#000','#000','#000','#000'],
+          useSeriesColors: false
+      },
     },
     responsive: [{
       breakpoint: 480,
@@ -71,8 +77,8 @@ const DonutChart = () => {
 
   return (
     <div>
-      <div id="chart">
-        <ReactApexChart options={options} series={series} type="donut" />
+      <div id="chart" style={{adding:"10px", margin:"10px"}}>
+        <ReactApexChart options={options} series={series} type="donut" height={447} width={600} />
       </div>
       <div id="html-dist"></div>
     </div>
