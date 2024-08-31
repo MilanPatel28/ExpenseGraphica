@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import '../Styles/enterexpense.css';
+import Heading from './Heading';
 
 const AddExpense = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -58,6 +59,7 @@ const AddExpense = () => {
     return (
         <>
             <Navbar />
+            <Heading text="Add Expense"/>
             <div className="expense-card">
                 <div id="expense-alert">
                     {showAlert && ( // Display alert if showAlert is true

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import EditExpenseModal from './EditExpenseModal';
 import styles from '../Styles/statementPage.module.css'
-
+import Heading from './Heading';
 export default function StatementPage() {
   const [expenses, setExpenses] = useState([]);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -89,7 +89,7 @@ export default function StatementPage() {
     <>
       <Navbar />
       <div>
-        <h1 className={styles.mainHeading}>Statement</h1>
+        <Heading text="Statement"/>
         <ul className={styles.outerUl}>
           {expenses.map(expense => (
             <li key={expense._id} className={styles.expenseItem}>

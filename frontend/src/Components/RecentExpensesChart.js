@@ -60,7 +60,7 @@ const RecentExpensesChart = () => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 10,
+        borderRadius: 3,
         dataLabels: {
           position: 'top', // top, center, bottom
         },
@@ -73,8 +73,8 @@ const RecentExpensesChart = () => {
       },
       offsetY: -20,
       style: {
-        fontSize: '12px',
-        colors: ["#304758"]
+        fontSize: '16px',
+        colors: ["#000"]
       }
     },
     xaxis: {
@@ -100,6 +100,12 @@ const RecentExpensesChart = () => {
       },
       tooltip: {
         enabled: true,
+      },
+      labels: {
+        style: {
+          colors: ["#000","#000"],
+          fontSize: '16px',
+        },
       }
     },
     yaxis: {
@@ -110,10 +116,10 @@ const RecentExpensesChart = () => {
         show: false,
       },
       labels: {
-        show: false,
-        formatter: function (val) {
-          return val.toFixed(2); // Format to two decimal places
-        }
+        style: {
+          colors: ["#000","#000"],
+          fontSize: '16px',
+        },
       }
     },
     title: {
@@ -130,7 +136,7 @@ const RecentExpensesChart = () => {
   return (
     <div>
       <div id="chart" className='d-flex justify-content-center'>
-        <ReactApexChart options={options} series={series} type="bar" height={500} width={250} />
+        <ReactApexChart options={options} series={series} type="bar" height={415} width={450} />
       </div>
       <div id="html-dist"></div>
     </div>

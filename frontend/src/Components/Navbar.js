@@ -48,10 +48,12 @@ export default function Navbar() {
     };
 
     return (
-        <div id="nav-bar">
+        <div id="nav-bar" style={{zIndex:1}}>
             <input id="nav-toggle" type="checkbox" defaultChecked />
             <div id="nav-header">
-                <span id="nav-title">ExpenseGraphica</span>
+                <Link to="/home">
+                    <span id="nav-title">ExpenseGraphica</span>
+                </Link>
                 <label htmlFor="nav-toggle" onClick={toggleNavbar}><span id="nav-toggle-burger"></span></label>
                 <hr/>
             </div>
