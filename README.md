@@ -3,7 +3,7 @@
 ## 🎯 Motivation
 
 <p align="justify">
-    Many individuals, particularly students, are often unaware of how much money they spend and where it goes. 🕵🏻‍♂️ This lack of financial awareness can lead to poor money management. To solve this issue, my colleague <a href="https://github.com/MilanPatel28" target="_blank">Milan Patel</a> and I have developed <strong>ExpenseGraphica</strong> — a one-stop solution to help you track your cash flow 💸 and gain insightful analytics on your spending. ExpenseGraphica makes it simple to categorize your expenses and keep an eye on where your money is going.
+    Many individuals, particularly students, are often unaware of how much money they spend and where it goes. 🕵🏻‍♂️ This lack of financial awareness can lead to poor money management. To solve this issue, my colleague <a href="https://github.com/KrishV9055" target="_blank">Krish Viramgama</a> and I have developed <strong>ExpenseGraphica</strong> — a one-stop solution to help you track your cash flow 💸 and gain insightful analytics on your spending. ExpenseGraphica makes it simple to categorize your expenses and keep an eye on where your money is going.
 </p>
 
 ## 📊 Features
